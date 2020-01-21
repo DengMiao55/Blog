@@ -19,5 +19,9 @@ class Comment(models.Model):
     status = models.PositiveIntegerField(default=STATUS_NORMAL, choices=STATUS_ITEMS, verbose_name="状态")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
 
+    owner = models.ForeignKey(User, verbose_name="作者", on_delete=False)
+
+
+
     class Meta:
         verbose_name = verbose_name_plural = "评论"
